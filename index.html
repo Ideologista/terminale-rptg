@@ -478,12 +478,12 @@
 				if (selectedLog === "log001") {
 				  await typeWriterAsync("Accesso al file log001...\n", div);
 				  await typeWriterAsync("Inizializzazione...\n\n", div);
-				  await typeWriterAsync("[14/05/2025]\n\n[13:03:44] Rilevato mal funzionamento all'interno della struttura. Anomalia rilevata fuori dal contenimento. Class D fuori dalle celle\n", div);
+				  await typeWriterAsync("[14/05/2025]\n\n[13:03:44] Rilevato mal funzionamento all'interno della struttura. Anomalie rilevate fuori dal contenimento. Class D fuori dalle celle\n", div);
 				  await addAudioSequenceAsync({
 					beforeText: "[13:03:51] Protocollo di emergenza attivato\n\n",
 					buttonText: "▶ Avvia audio",
 					audioSrc: "emergency.mp3",
-					afterText: "\n\nAttention Attention. The internal system has been corrupted by an unknown error. Class D cells found open. An SCP is out of the containment. Emergency protocol activated\n"
+					afterText: "\n\nAttention Attention. The internal system has been corrupted by an unknown error. Class D cells found open. 2 SCPs are out of the containment. Emergency protocol activated\n"
 				  }, div);
 				  
 				  await typeWriterAsync("[13:04:23] Trasmessa con successo la richiesta di intervento da parte di una squadra mobile\n", div);
@@ -497,16 +497,23 @@
 
 				  await typeWriterAsync("[13:05:05] La squadra fa irruzione nel sito.\n\n", div);
 				  await typeWriterAsync("[13:15:01] La squadra registra il contatto con l'anomalia SCP-939. Ingaggio\n\n", div);
+				  await typeWriterAsync("[13:15:21] La squadra registra il contatto con l'anomalia SCP-173. Le due anomalie rimangono a stretto contatto tra di loro. Riorganizzazione\n\n", div);
 				  await typeWriterAsync("[13:29:56] Contatto con personale di Class D armato. Ingaggio\n\n", div);
 
 				  await addAudioSequenceAsync({
 					beforeText: "[13:34:06] SCP-939 ricontenuto con successo, fatalità: 4.\n\n",
 					buttonText: "▶ Avvia audio",
 					audioSrc: "scp-939 ricontenuto.mp3",
-					afterText: "\n\nSCP 939 contained successfully. Containment unit Echo-07\n\n"
+					afterText: "\n\nSCP 939 contained successfully. Containment unit Bravo-17\n\n"
+				  }, div);
+				  await addAudioSequenceAsync({
+					beforeText: "[13:39:23] SCP-173 ricontenuto con successo, fatalità: 6.\n\n",
+					buttonText: "▶ Avvia audio",
+					audioSrc: "scp-173 ricontenuto.mp3",
+					afterText: "\n\nSCP 939 contained successfully. Containment unit Bravo-17\n\n"
 				  }, div);
 
-				  await typeWriterAsync("[13:36:11] Dichiarato cessata emergenza. Protocollo disattivato. Evento registrato con successo nell'archivio. \n", div);
+				  await typeWriterAsync("[13:36:11] Class D arresi. Dichiarata cessata emergenza. Protocollo disattivato. Fatalità fondazione: 13. Fatalità personale di Classe D: 11. Evento registrato con successo nell'archivio. \n", div);
 				}
 			  }
 		  }
