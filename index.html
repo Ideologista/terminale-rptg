@@ -243,8 +243,10 @@
 
 		  let stage = "username";
 		  let inputBuffer = "";
+		  const correctUsername = "Ideologista";
+		  const correctPassword = "Password";
 
-		  const menuOptions = ["Visualizza log", "Avvia sequenza"];
+		  const menuOptions = ["Visualizza log", "Socials"];
 		  const logOptions = ["log001", "log002", "log003"];
 		  let selectedIndex = 0;
 		  let currentOptions = [...menuOptions];
@@ -464,7 +466,7 @@
 				  terminal.innerHTML = "";
 				  const div = document.createElement("div");
 				  terminal.appendChild(div);
-				  typeWriter("Avvio sequenza...\n(contenuto fittizio)\n\nPremi ESC per tornare.", div, 40);
+				  typeWriter("Work in progress...", div, 40);
 				  state = "sequence";
 				}
 			  } else if (state === "logs") {
@@ -593,33 +595,36 @@
 
 			if (e.key === "Enter") {
 			  if (stage === "username") {
-				usernameSpan.textContent = inputBuffer;
-				stage = "password";
-				errorMessage.textContent = "";
-				inputBuffer = "";
-			  } else if (stage === "password") {
-				passwordSpan.textContent = "*".repeat(inputBuffer.length);
-				const username = usernameSpan.textContent;
-				const password = inputBuffer;
-
-				authenticate(username, password).then(isAuthenticated => {
-				  if (isAuthenticated) {
-					stage = "authenticated";
-					loginContainer.style.display = "none";
-					errorMessage.style.display = "none";
-					f11Hint.style.display = "none";
-					startProgressBar(() => {
-					  terminal.style.display = "block";
-					  escHint.style.display = "block";
-					  playLoopSound();
-					  showMainMenu();
-					});
-				  } else {
-					errorMessage.textContent = "Credenziali non valide.";
-					passwordSpan.textContent = "";
-				  }
+				if (inputBuffer === correctUsername) {
+				  usernameSpan.textContent = inputBuffer;
 				  inputBuffer = "";
-				});
+				  stage = "password";
+				  errorMessage.textContent = "";
+				} else {
+				  errorMessage.textContent = "Nome utente errato.";
+				  inputBuffer = "";
+				  usernameSpan.textContent = "";
+				}
+			  } else if (stage === "password") {
+				if (inputBuffer === correctPassword) {
+				  passwordSpan.textContent = "********";
+				  inputBuffer = "";
+				  errorMessage.textContent = "";
+				  stage = "authenticated";
+				  loginContainer.style.display = "none";
+				  errorMessage.style.display = "none";
+				  f11Hint.style.display = "none";
+				  startProgressBar(() => {
+					terminal.style.display = "block";
+					escHint.style.display = "block";
+					playLoopSound();
+					showMainMenu();
+				  });
+				} else {
+				  errorMessage.textContent = "Password errata.";
+				  inputBuffer = "";
+				  passwordSpan.textContent = "";
+				}
 			  }
 			} else if (e.key.length === 1) {
 			  inputBuffer += e.key;
@@ -640,17 +645,6 @@
 		  }
 
 		  document.addEventListener("keydown", handleInput);
-		  async function authenticate(username, password) {
-			  const response = await fetch('/auth.php', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ username, password })
-			  });
-
-			  const result = await response.json();
-			  return result.success;
-		  }
-
 		</script>
 		</body>
 		</html>
