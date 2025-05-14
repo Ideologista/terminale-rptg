@@ -247,7 +247,7 @@
 		  const correctPassword = "ProgettoIdeo";
 
 		  const menuOptions = ["Visualizza log", "Socials"];
-		  const logOptions = ["log001", "log002", "log003"];
+		  const logOptions = ["log000", "log001", "log002"];
 		  let selectedIndex = 0;
 		  let currentOptions = [...menuOptions];
 		  let state = "menu";
@@ -475,8 +475,8 @@
 				const div = document.createElement("div");
 				terminal.appendChild(div);
 
-				if (selectedLog === "log001") {
-				  await typeWriterAsync("Accesso al file log001...\n", div);
+				if (selectedLog === "log000") {
+				  await typeWriterAsync("Accesso al file log000...\n", div);
 				  await typeWriterAsync("Inizializzazione...\n\n", div);
 				  await typeWriterAsync("[14/05/2025]\n\n[13:03:44] Rilevato mal funzionamento all'interno della struttura. Anomalie rilevate fuori dal contenimento. Class D fuori dalle celle\n", div);
 				  await addAudioSequenceAsync({
