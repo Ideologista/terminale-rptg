@@ -3,7 +3,7 @@
 		<head>
 		  <meta charset="UTF-8" />
 		  <title>O.L.A.C.T.</title>
-		  <link rel="icon" type="image/x-icon" href="logo.ico">
+		  <link rel="icon" type="image/x-icon" href="content/logo.ico">
 		  <style>
 			body {
 			  background-color: black;
@@ -187,7 +187,7 @@
 		</head>
 		<body>
 		  <div id="login-container">
-			<img id="loginImage" src="logo.png" alt="Logo" />
+			<img id="loginImage" src="content/logo.png" alt="Logo" />
 			<div class="login-box">
 			  <div class="input-line">
 				<span class="label">Username:</span>
@@ -205,7 +205,7 @@
 			<div id="discord-link">
 			  <span>Per ottenere le credenziali accedere al server Discord ▶ </span>
 			  <a href="https://discord.gg/rVeuhqRA2g" target="_blank">
-				<img src="discord-logo.png" alt="Discord" />
+				<img src="content/discord-logo.png" alt="Discord" />
 			  </a>
 			  
 			</div>
@@ -224,8 +224,8 @@
 		  <div id="terminal"></div>
 		  <div class="esc-hint" id="escHint" style="display: none;">Premi ESC per tornare indietro</div>
 
-		  <audio id="bootSound" src="PC_boot.mp3"></audio>
-		  <audio id="loopSound" src="loop-sound.mp3"></audio>
+		  <audio id="bootSound" src="content/PC_boot.mp3"></audio>
+		  <audio id="loopSound" src="content/loop-sound.mp3"></audio>
 
 		<script>
 		  const terminal = document.getElementById("terminal");
@@ -280,7 +280,7 @@
 
 		  let typeQueue = [];
 		  let isTyping = false;
-		  const typingSound = new Audio('digitaltype.mp3');
+		  const typingSound = new Audio('content/digitaltype.mp3');
 		  typingSound.volume = 0.15;
 
 		  function typeWriter(text, container, speed, callback) {
@@ -483,7 +483,7 @@
 				  await addAudioSequenceAsync({
 					beforeText: "[13:03:51] Protocollo di emergenza attivato\n\n",
 					buttonText: "▶ Avvia audio",
-					audioSrc: "emergency.mp3",
+					audioSrc: "content/emergency.mp3",
 					afterText: "\n\nAttention Attention. The internal system has been corrupted by an unknown error. Class D cells found open. 2 SCPs are out of the containment. Emergency protocol activated\n"
 				  }, div);
 				  
@@ -492,7 +492,7 @@
 				  await addAudioSequenceAsync({
 					beforeText: "[13:08:23] Registrato l'arrivo di una prima squadra NTF\n\n",
 					buttonText: "▶ Avvia audio",
-					audioSrc: "ntf_spawn.mp3",
+					audioSrc: "content/ntf_spawn.mp3",
 					afterText: "\n\nMobile Task force unit Epsylon-11 designated Bravo-17 has entered the facility. All remaining personnel are advised to proceed with standard evacuation protocols, until an NTF squad reaches your destination.\nSubstancial treath to safety remains within the facility. Exercise caution\n\n"
 				  }, div);
 
@@ -504,13 +504,13 @@
 				  await addAudioSequenceAsync({
 					beforeText: "[13:34:06] SCP-939 ricontenuto con successo, fatalità: 4.\n\n",
 					buttonText: "▶ Avvia audio",
-					audioSrc: "scp-939 ricontenuto.mp3",
+					audioSrc: "content/scp-939 ricontenuto.mp3",
 					afterText: "\n\nSCP 939 contained successfully. Containment unit Bravo-17\n\n"
 				  }, div);
 				  await addAudioSequenceAsync({
 					beforeText: "[13:39:23] SCP-173 ricontenuto con successo, fatalità: 6.\n\n",
 					buttonText: "▶ Avvia audio",
-					audioSrc: "scp-173 ricontenuto.mp3",
+					audioSrc: "content/scp-173 ricontenuto.mp3",
 					afterText: "\n\nSCP 173 contained successfully. Containment unit Bravo-17\n\n"
 				  }, div);
 
@@ -641,7 +641,7 @@
 			  } else if (stage === "password") {
 				passwordSpan.textContent = "*".repeat(inputBuffer.length);
 			  }
-			  new Audio("type.wav").play().catch(() => {});
+			  new Audio("content/type.wav").play().catch(() => {});
 			} else if (e.key === "Backspace") {
 			  inputBuffer = inputBuffer.slice(0, -1);
 			  if (stage === "username") {
